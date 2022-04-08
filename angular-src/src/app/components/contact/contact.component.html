@@ -1,0 +1,56 @@
+
+
+<section class="wrapperContact">
+
+    
+    <div class="columContact" >
+        <h2 class="titleCreate" style="text-decoration: underline;
+        text-decoration-color: #ff7047;">Don´t hesitate to contact me</h2>
+        
+
+                                     
+        <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)"> <!--Añadimos id con # y le indicamos que es un nForm-->
+        <div class="mb-3">
+
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" #name="ngModel" #nameInput [(ngModel)]="contact.name" required>
+                
+            <span class="alert alert-danger" *ngIf="name.touched && !name.valid">Introduce your name</span>
+        </div>
+            
+            
+        <div class="mb-3">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" #firstName="ngModel" #firstNameInput [(ngModel)]="contact.firstName" required>
+            <span class="alert alert-danger" *ngIf="firstName.touched && !firstName.valid"> Enter your first name</span>
+        </div>
+                
+        <div class="mb-3">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea type="text" #message="ngModel" class="form-control" name="message"  [(ngModel)]="contact.message" required></textarea>
+            <span class="alert alert-danger" *ngIf="message.touched && !message.valid"> Write your message</span>
+                    
+        </div>
+                    
+        
+        <!--Usamos [] añadiendo dentro una clase para aplicarla al elemento según una condición.
+            Ver ejemplo [disabled]=""-->  
+        <button type="submit" class="btn btn-primary" [disabled]="contactForm.form.invalid" >Submit</button> 
+        </form>
+
+        <!--Divs alertas para depues de completar el formulario-->
+        <br>
+        <div class="alert alert-success" *ngIf="status === 'success'">
+            Form sent successfully
+        </div>
+
+        <div class="alert alert-danger" *ngIf="status === 'failed'">
+            Error to send it
+        </div>
+        <!--END -->
+        
+    </div>
+    
+
+</section>          
+

@@ -1,0 +1,84 @@
+
+<section class="wrapperCreate-Project">
+
+    
+    <div class="columCreate" *ngIf="project">
+        <h2 class="titleCreate">{{title}}</h2>
+        
+        <!--Angular da automaticamente ngForm a un form que creemos y ngModel a cada uno de los Inputs.
+            Le tenemos que dar un nombre de todas maneras para reconocerlo y poder seleccionarlos luego para lo que queramos.
+        -->
+
+        <!--Angular de por si, habiendole indicado que ngModels son required, nos reconoce en que momento el formulario es valido.
+            Podemos jugar con eso para disable el button hasta que este validado el formulario-->
+           <!--{{projectForm.form.valid}}--> 
+
+        
+        <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)"> <!--Añadimos id con # y le indicamos que es un nForm-->
+        <div class="mb-3">
+
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" name="name" #name="ngModel" #nameInput [(ngModel)]="project.name" required>
+                
+            <span class="alert alert-danger" *ngIf="name.touched && !name.valid">Introduzca su nombre.</span>
+        </div>
+            
+            
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" class="form-control" name="description" #description="ngModel" #descriptionInput [(ngModel)]="project.description" required>
+            <span class="alert alert-danger" *ngIf="description.touched && !description.valid"> Introduzca una descripción</span>
+        </div>
+                
+        <div class="mb-3">
+            <label for="category" class="form-label">Category</label>
+            <input type="text" #category="ngModel" class="form-control" name="category"  [(ngModel)]="project.category" required>
+            <span class="alert alert-danger" *ngIf="category.touched && !category.valid"> Introduzca una categoria.</span>
+                    
+        </div>
+                    
+        <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="number" class="form-control" name="year" #year="ngModel" [(ngModel)]="project.year" >
+                        
+        </div>
+
+        <div class="mb-3">
+            <label for="lang" class="form-label">Language</label>
+            <input type="text" class="form-control" name="lang" #lang="ngModel" [(ngModel)]="project.lang" required>
+            <span class="alert alert-danger" *ngIf="lang.touched && !lang.valid"> Introduzca un lenguaje.</span>
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <!--Crear vista previa de imagen cargada-->
+
+            <div *ngIf="project.image">
+                <img src="{{url+'get/'+project.image}}" alt="" style="width:150px;padding: 10px;">
+            </div>
+            <!--END-->
+
+            <input type="file" class="form-control" name="image" #image="ngModel" [(ngModel)]="project.image" placeholder="Subir Imagen"  
+            (change)="fileChangeEvent($event)"> <!--El evento CHANGE simplement activa otra function que nosotros creemos.-->
+                                
+        </div> 
+        <!--Usamos [] añadiendo dentro una clase para aplicarla al elemento según una condición.
+            Ver ejemplo [disabled]=""-->  
+        <button type="submit" class="btn btn-primary" [disabled]="projectForm.form.invalid" >Submit</button> 
+        </form>
+
+        <!--Divs alertas para depues de completar el formulario-->
+        <br>
+        <div class="alert alert-success" *ngIf="status === 'success'">
+            Proyecto creado satisfactoriamente
+        </div>
+
+        <div class="alert alert-danger" *ngIf="status === 'failed'">
+            Proyecto no ha podido crearse
+        </div>
+        <!--END -->
+        
+    </div>
+    
+
+</section>          

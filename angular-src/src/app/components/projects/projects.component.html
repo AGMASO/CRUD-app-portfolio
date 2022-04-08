@@ -1,0 +1,41 @@
+
+<section class="wrapperProjects">
+<h2 class="titleCreate">{{title}}</h2>
+
+
+
+<!--<div>
+  <ul>
+    <li *ngFor="let project of projects" class="projectLi">
+        <div class="image">
+          <img src="{{url+'get/'+project.image}}" *ngIf="project.image" alt="" >
+        </div>
+          <h2>{{project.name}}</h2>
+           <h3>{{project.category}} - {{project.year}}</h3>
+          <h3>{{project.description}}</h3>
+     </li>
+  </ul>
+</div>-->
+
+
+
+<div class="row mb" >
+    <div class="col-md-6" *ngFor="let project of projects">
+      <div id="reverse" class="row g-0 border rounded overflow-hidden mb-4 shadow-sm h-md-250 position-relative ">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">{{project.category}}</strong>
+          <h3 class="mb-0">{{project.name}}</h3>
+          <div class="mb-1 text-muted">{{project.year}}</div>
+          <p class="card-text mb-auto">{{project.description}}</p>
+          <a [routerLink]="['/detailed',project._id]" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col">
+          
+          <img class="bd-placeholder-img" src="{{url+'get/'+project.image}}" *ngIf="project.image" alt="" style="max-width:60%">
+        </div>
+      </div>
+    </div>
+</div>
+
+</section>
+

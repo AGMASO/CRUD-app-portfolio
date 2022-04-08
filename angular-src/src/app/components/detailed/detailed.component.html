@@ -1,0 +1,29 @@
+<section class="wrapperProjects" *ngIf="project">
+
+    <div class="projectSolo">
+        <h1>{{project.name}}</h1>
+        <hr>
+
+        <img src="{{url+'get/'+project.image}}" *ngIf="project.image" alt="" style="max-width:80%;">
+        <h2>{{project.category}}</h2>
+        <h4>{{project.year}}</h4>
+        <hr>
+        <h3>{{project.description}}</h3>
+        
+
+        <!--Aquí vamos a añadir los botones de editar y borrar-->
+        <!--Añadimos ngIF para mostrar estos botones cuando confirm es = a false-->
+        <div *ngIf="confirm == false">
+            <a  [routerLink]="['/edit', project._id]" class="btn btn-info"  style="margin: 10px;">Editar</a>
+            <a (click)="onTrue()" class="btn btn-danger"  style="margin: 10px;">Borrar</a>
+        </div>
+        
+        
+        <!--ahora sol ose enseñará estos botones si hemos clicado en que queremos borrar el projecto-->
+        <div *ngIf="confirm == true">
+            <h4>Are you sure to delete the Project?</h4>
+            <a  (click)="onFalse()" class="btn btn-info"  style="margin: 10px;">Cancel</a>
+            <a (click)="deleteOneProject(project._id)" class="btn btn-danger"  style="margin: 10px;">Yes, I want to delete</a>
+        </div>
+    </div>
+</section>

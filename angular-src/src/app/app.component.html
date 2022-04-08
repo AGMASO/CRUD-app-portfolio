@@ -1,0 +1,76 @@
+
+
+
+<!-- Toolbar/Nav-menu -->
+<header class="desktopMenu">
+<nav class="navbar ">
+  
+      <ul class="nav navbar-nav" routerLinkActive="">
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="home" >Home</a></li>
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="about" >About</a></li>
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="contact" >Contact</a></li>
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="create-projects" >Create Projects</a></li>
+          <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="projects" >Projects</a></li>
+      </ul>
+  
+</nav>
+</header>
+<!--Hamburguer menu for tablet,phone-->
+<header class="phoneMenu">
+  
+
+<nav class="navbar navbar-dark fixed-top">
+  <div class="container">
+
+      <a class="navbar-brand" ></a>
+
+      <button id="botondecisivo" class="navbar-toggler" type="button" data-bs-toggle="collapse" href="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item" routerLinkActive="active" ><a class="nav-link" routerLink="home" (click)="onClick()">Home</a></li>
+            <li class="nav-item" routerLinkActive="active" ><a class="nav-link" routerLink="about" (click)="onClick()">About</a></li>
+            <li class="nav-item" routerLinkActive="active" ><a class="nav-link" routerLink="contact" (click)="onClick()" >Contact</a></li>
+            <li class="nav-item" routerLinkActive="active" ><a class="nav-link" routerLink="create-projects" (click)="onClick()" >Create Projects</a></li>
+            <li class="nav-item" routerLinkActive="active" ><a class="nav-link" routerLink="projects" (click)="onClick()" >Projects</a></li>
+          </ul>
+      </div>
+
+  </div>
+</nav>
+
+
+</header>
+<!--Main Content-->
+
+<router-outlet></router-outlet> <!--Incluir router outlet, si no no funcionan las urls de los componentes-->
+
+  
+<!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    
+  
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">2022 Copyright © 
+    
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+
+  
+
+
+
