@@ -11,7 +11,7 @@ const uploadRoutes = require ('./routes/uploadRoutes');
 const contactRoutes = require ('./routes/contactRoutes');
 //Config
 
-const config = require('./config/database');
+
 require("dotenv").config();
 
 //Import Variables Local
