@@ -24,7 +24,7 @@ export class ProjectsComponent implements OnInit {
 
   constructor( private _projectService:ProjectService) {
 
-    this.title= "Todos los Proyectos creados"
+    this.title= "All created Projects"
     this.url = Global.url;
      }
 

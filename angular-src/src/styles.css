@@ -246,6 +246,24 @@ html {
     min-height: calc(100vh - 200px);
 
   }
+  .btn-default
+{
+  margin: 0 auto;
+  background-color: #212529;
+  color: #a3b9d6;
+  font-weight: 900;
+  border-color: #212529;
+  transition: all 0.3s ease-in-out;
+
+}
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+
+  background-color: #212529;
+  color:#ff744c;
+  border-color: #ff744c;
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+ }
   
  
 

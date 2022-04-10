@@ -38,7 +38,7 @@ export class CreateProjectsComponent implements OnInit {
   public project: Project;
   constructor( private _projectService:ProjectService, private _uploadService: UploadService) {
 
-    this.title =" Rellena los campos para crear tu nuevo proyecto";
+    this.title ="Fill in the fields to create your new project";
     this.project = new Project('','','','',2022,'',''); //Como ves, tenemos que crear un new Project y dejar cada parametro vacio para luego rellenarlo con el formulario.
     this.status = '';
     this.url = Global.url;

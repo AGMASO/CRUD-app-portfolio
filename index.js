@@ -50,6 +50,7 @@ app.listen(port, host, ()=>{
     console.log('Server is working very good')
 });
 
+
 mongoose.connect(process.env.MONGODB_URI_LOCAL)
     .then(()=>{
         //Tarda en conectarse a la DB un poco. Por lo que no queremos tener REQ hasta que no estemos conectados. por ello 
